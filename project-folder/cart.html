@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project-folder/css/styles.css">
+    <title>Cart</title>
+</head>
+<style>
+    button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+</style>
+<body>
+    <h1>Your Cart</h1>
+    <div id="cart">
+        <!-- Cart items will be dynamically loaded here -->
+    </div>
+    <a href="index.html">Back to Products</a>
+</body>
+<script>
+    fetch('php/load_cart.php')
+        .then(response => response.text())
+        .then(data => document.getElementById('cart').innerHTML = data);
+</script>
+</html>
